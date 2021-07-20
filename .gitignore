@@ -1,14 +1,32 @@
+# IntelliJ
+.idea/
+
+# Gradle
 .gradle
-/build/
+build/
+*\.log
+logging\.properties
 
-# Ignore Gradle GUI config
-gradle-app.setting
+# Compiled class file
+*.class
 
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
+# Log file
+*.log
 
-# Cache of project
-.gradletasknamecache
+# BlueJ files
+*.ctxt
 
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
