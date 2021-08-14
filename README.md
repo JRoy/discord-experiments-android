@@ -1,2 +1,2 @@
 # discord-experiments-android
-A patcher for the android discord app to enable the experiments tab for non-staff members
+A patcher for Discord's Android app to enable the experiments tab for non-staff members
