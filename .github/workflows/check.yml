@@ -1,0 +1,61 @@
+name: App Update Check
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Load Gradle Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '16'
+
+      - name: Check for/Download new APK
+        run: |
+          chmod +x gradlew
+          ./gradlew checkVersion
+
+      - name: Patch APK
+        env:
+          STORE_PASS: ${{ secrets.STORE_PASS }}
+        run: ./gradlew runShadow --args="--keystore-pass $STORE_PASS --key-pass $STORE_PASS --input-apk downloaded.apk --keystore-file release.keystore"
+
+      - name: Read Version
+        id: version
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./version.txt
+
+      - name: Commit Version
+        run: |
+          git config --global user.name 'Josh Roy'
+          git config --global user.email '10731363+JRoy@users.noreply.github.com'
+          git add version.txt
+          git commit -m "New Version Detected - ${{ steps.version.outputs.content }}"
+          git push
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.content }}
+          files: patched.apk
+          body: Patched version based on release ${{ steps.version.outputs.content }}

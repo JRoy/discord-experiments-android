@@ -31,5 +31,4 @@ logging\.properties
 hs_err_pid*
 
 *.apk
-*.keystore
 output/
