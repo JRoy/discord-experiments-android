@@ -21,11 +21,11 @@ import java.nio.charset.StandardCharsets;
 public abstract class VersionCheckTask extends DefaultTask {
   @TaskAction
   public void checkVersion() throws IOException {
-    String previousVersion = null;
+    long previousVersion = 0;
 
     final File versionFile = new File(System.getProperty("user.dir"), "version.txt");
     if (versionFile.exists()) {
-      previousVersion = FileUtils.readFileToString(versionFile, StandardCharsets.UTF_8).trim();
+      previousVersion = Long.parseLong(FileUtils.readFileToString(versionFile, StandardCharsets.UTF_8).trim());
     }
 
     try (final CloseableHttpClient client = HttpClients.createDefault()) {
@@ -41,12 +41,12 @@ public abstract class VersionCheckTask extends DefaultTask {
       final JsonObject apk = JsonParser.parseString(content).getAsJsonObject().get("data").getAsJsonArray().get(0)
           .getAsJsonObject().get("apks").getAsJsonArray().get(0).getAsJsonObject();
 
-      final String versionCode = apk.get("version_code").getAsString();
-      if (versionCode.equals(previousVersion)) {
+      final long versionCode = Long.parseLong(apk.get("version_code").getAsString());
+      if (previousVersion >= versionCode) {
         throw new RuntimeException("No new version available.");
       }
 
-      FileUtils.writeStringToFile(versionFile, versionCode, StandardCharsets.UTF_8);
+      FileUtils.writeStringToFile(versionFile, String.valueOf(versionCode), StandardCharsets.UTF_8);
 
       final HttpGet idGet = new HttpGet("https://www.apkmirror.com" + apk.get("link").getAsString() + "download/");
       idGet.addHeader("User-Agent", "APKUpdater-v2.0.5");
