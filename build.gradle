@@ -1,18 +1,9 @@
-buildscript {
-    repositories {
-        maven { url 'https://jitpack.io' }
-        gradlePluginPortal()
-    }
-    dependencies {
-        // record support
-        classpath 'com.github.johnrengelman:shadow:455d2346a2'
-    }
+plugins {
+    id 'java'
+    id 'application'
+    id 'maven-publish'
+    id "com.github.johnrengelman.shadow" version "7.1.0"
 }
-
-apply plugin: 'com.github.johnrengelman.shadow'
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'maven-publish'
 
 group 'io.github.jroy'
 mainClassName = 'io.github.jroy.droidcordexper.DiscordPatcher'
@@ -25,14 +16,10 @@ repositories {
 }
 
 dependencies {
-    // using jar until apktool publishes to central
-    implementation(files('lib/apkpatcher-all.jar'))
+    implementation 'com.github.JRoy:apk-patcher:bc7deff9b1'
 
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
 }
 
-shadowJar {
-    minimize()
-}
-
 tasks.register('checkVersion', VersionCheckTask)
+tasks.register('parseExperiments', ParseExperimentsTask)
