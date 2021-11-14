@@ -60,13 +60,16 @@ public class ParseExperimentsTask extends DefaultTask {
       }
     }
 
+    final StringBuilder sb = new StringBuilder();
+    sb.append("Patched version based on release : ").append(FileUtils.readFileToString(new File(System.getProperty("user.dir"), "version.txt"), StandardCharsets.UTF_8).trim()).append("\n\n");
+
     final File experimentsDetails = new File(System.getProperty("user.dir"), "experiments.md");
     if (newExperiments.isEmpty() && currentExperiments.isEmpty()) {
-      FileUtils.writeStringToFile(experimentsDetails, "This version has no new or removed experiments.", StandardCharsets.UTF_8);
+      sb.append("This version has no new or removed experiments.");
+      FileUtils.writeStringToFile(experimentsDetails, sb.toString(), StandardCharsets.UTF_8);
       return;
     }
 
-    final StringBuilder sb = new StringBuilder();
     if (!newExperiments.isEmpty()) {
       sb.append("## New experiments:\n");
       for (final Map.Entry<String, String> entry : newExperiments.entrySet()) {

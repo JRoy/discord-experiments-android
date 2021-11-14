@@ -48,12 +48,6 @@ jobs:
       - name: Parse Experiments
         run: ./gradlew parseExperiments
 
-      - name: Read Experiments
-        id: experiments
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./experiments.md
-
       - name: Commit Version
         run: |
           git config --global user.name 'Josh Roy'
@@ -69,4 +63,4 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.content }}
           files: patched.apk
-          body: Patched version based on release ${{ steps.version.outputs.content }} \n ${{ steps.experiments.outputs.content }}
+          body_path: ./experiments.md
