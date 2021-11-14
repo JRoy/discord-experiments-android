@@ -31,4 +31,5 @@ logging\.properties
 hs_err_pid*
 
 *.apk
+*.apktool_temp
 output/
