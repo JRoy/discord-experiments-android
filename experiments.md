@@ -1,3 +1,7 @@
-Patched version based on release : 103205
+Patched version based on release : 103206
 
-This version has no new or removed experiments.
+## New experiments:
+- **Enabled Discord Hub Unreads** `2021-11_hub_unreads`
+
+## Removed experiments:
+- `2021-08_hub_reporting`
