@@ -1,3 +1,5 @@
-Patched version based on release : 104200
+Patched version based on release : 104202
 
-This version has no new or removed experiments.
+## New experiments:
+- **Animated Guild Banner** `2021-10_animated_guild_banners`
+
