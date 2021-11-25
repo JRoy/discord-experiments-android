@@ -1,5 +1,6 @@
-Patched version based on release : 104202
+Patched version based on release : 104203
 
 ## New experiments:
-- **Animated Guild Banner** `2021-10_animated_guild_banners`
+- **Guild Communication Disabled - Users Experiment** `2021-11_guild_communication_disabled_users`
+- **Guild Communication Disabled - Guilds Experiment** `2021-11_guild_communication_disabled_guilds`
 
