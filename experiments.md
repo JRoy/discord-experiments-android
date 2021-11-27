@@ -1,6 +1,3 @@
-Patched version based on release : 104203
+Patched version based on release : 104204
 
-## New experiments:
-- **Guild Communication Disabled - Users Experiment** `2021-11_guild_communication_disabled_users`
-- **Guild Communication Disabled - Guilds Experiment** `2021-11_guild_communication_disabled_guilds`
-
+This version has no new or removed experiments.
