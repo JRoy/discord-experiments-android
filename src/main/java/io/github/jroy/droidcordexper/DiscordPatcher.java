@@ -2,8 +2,10 @@ package io.github.jroy.droidcordexper;
 
 import io.github.jroy.apkpatcher.ApkPatcher;
 import io.github.jroy.apkpatcher.ApkPatcherException;
-import io.github.jroy.apkpatcher.patcher.Patch;
+import io.github.jroy.apkpatcher.patcher.FileInjector;
+import io.github.jroy.apkpatcher.patcher.IApply;
 import io.github.jroy.apkpatcher.util.Logger;
+import io.github.jroy.droidcordexper.patches.CustomExperimentPatch;
 import io.github.jroy.droidcordexper.patches.ExperimentsStorePatch;
 import io.github.jroy.droidcordexper.patches.WidgetSettingsModelCompanionPatch;
 import io.github.jroy.droidcordexper.patches.WidgetSettingsPatch;
@@ -50,10 +52,12 @@ public class DiscordPatcher {
         namespace.getString("keystore_alias"),
         namespace.getString("keystore_pass"),
         namespace.getString("key_pass"),
-        new Patch[]{
+        new IApply[]{
             new ExperimentsStorePatch(),
             new WidgetSettingsPatch(),
-            new WidgetSettingsModelCompanionPatch()
+            new WidgetSettingsModelCompanionPatch(),
+            new CustomExperimentPatch(),
+            new FileInjector("CUSTOM_EXPERIMENT_INJECTOR", DiscordPatcher.class, "CustomExperimentRegister.smali", "smali/io/github/jroy/experiment/CustomExperimentRegister.smali")
         })
         .patch();
   }
