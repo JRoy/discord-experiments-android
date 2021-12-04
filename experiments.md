@@ -1,3 +1,5 @@
-Patched version based on release : 105207
+Patched version based on release : 105208
 
-This version has no new or removed experiments.
+## New experiments:
+- **Enabled Hub Guild Events** `2021-11_hub_events`
+
