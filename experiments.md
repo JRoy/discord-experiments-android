@@ -1,6 +1,3 @@
-Patched version based on release : 107201
+Patched version based on release : 107202
 
-## Removed experiments:
-- `2021-04_contact_sync_android_existing_user_phone_prompt`
-- `2021-04_contact_sync_android_existing_user_without_phone_prompt`
-- `2021-05_contact_sync_android_empty_states`
+This version has no new or removed experiments.
