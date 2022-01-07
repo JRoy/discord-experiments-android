@@ -1,6 +1,3 @@
-Patched version based on release : 110201
+Patched version based on release : 110202
 
-## Removed experiments:
-- `2021-03_bot_ui_kit_components_android`
-- `2021-05_bot_ui_kit_select`
-- `2021-10_animated_guild_banners`
+This version has no new or removed experiments.
