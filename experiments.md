@@ -1,4 +1,5 @@
-Patched version based on release : 112202
+Patched version based on release : 113200
 
-## Removed experiments:
-- `2021-09_longer_billing_grace_periods`
+## New experiments:
+- **Email Change Confirmation** `2022-01_email_change_confirmation`
+
