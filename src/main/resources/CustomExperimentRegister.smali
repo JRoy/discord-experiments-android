@@ -52,13 +52,13 @@
 
     move-result-object v8
 
-    const-string v9, "2021-01_google_smart_lock"
+    const-string v9, "2021-2022-01_email_change_confirmation"
 
     new-instance v0, Lcom/discord/utilities/experiments/RegisteredExperiment;
 
-    const-string v1, "[C]: Smart Lock"
+    const-string v1, "[C]: Email Change Confirmation"
 
-    const-string v2, "2021-01_google_smart_lock"
+    const-string v2, "2021-2022-01_email_change_confirmation"
 
     sget-object v3, Lcom/discord/utilities/experiments/RegisteredExperiment$Type;->USER:Lcom/discord/utilities/experiments/RegisteredExperiment$Type;
 
@@ -68,7 +68,7 @@
 
     aput-object v10, v4, v11
 
-    const-string v10, "Treatment 1: Enable Google Smart Lock Support."
+    const-string v10, "Treatment 1: Show email change confirmation dialog for unverified users."
 
     aput-object v10, v4, v5
 
@@ -89,15 +89,15 @@
 
     move-result-object v8
 
-    const-string v9, "2021-08_guild_role_subscription_users"
+    const-string v9, "2022-01_boost_announcement_upsell"
 
     new-instance v0, Lcom/discord/utilities/experiments/RegisteredExperiment;
 
-    const-string v1, "[C]: User Role Subscriptions"
+    const-string v1, "[C]: Guild Boost Announcement Upsell"
 
-    const-string v2, "2021-08_guild_role_subscription_users"
+    const-string v2, "2022-01_boost_announcement_upsell"
 
-    sget-object v3, Lcom/discord/utilities/experiments/RegisteredExperiment$Type;->USER:Lcom/discord/utilities/experiments/RegisteredExperiment$Type;
+    sget-object v3, Lcom/discord/utilities/experiments/RegisteredExperiment$Type;->GUILD:Lcom/discord/utilities/experiments/RegisteredExperiment$Type;
 
     new-array v4, v12, [Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     aput-object v10, v4, v11
 
-    const-string v10, "Treatment 1: Enable Creating Role Subscriptions."
+    const-string v10, "Treatment 1: Show guild boost upsell promotion."
 
     aput-object v10, v4, v5
 
@@ -120,43 +120,6 @@
     invoke-virtual {v8, v9, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 23
-    sget-object v0, Lcom/discord/utilities/experiments/ExperimentRegistry;->INSTANCE:Lcom/discord/utilities/experiments/ExperimentRegistry;
-
-    invoke-virtual {v0}, Lcom/discord/utilities/experiments/ExperimentRegistry;->getRegisteredExperiments()Ljava/util/LinkedHashMap;
-
-    move-result-object v8
-
-    const-string v9, "2021-06_guild_role_subscriptions"
-
-    new-instance v0, Lcom/discord/utilities/experiments/RegisteredExperiment;
-
-    const-string v1, "[C]: Guild Role Subscriptions"
-
-    const-string v2, "2021-06_guild_role_subscriptions"
-
-    sget-object v3, Lcom/discord/utilities/experiments/RegisteredExperiment$Type;->USER:Lcom/discord/utilities/experiments/RegisteredExperiment$Type;
-
-    new-array v4, v12, [Ljava/lang/String;
-
-    const-string v10, "Control"
-
-    aput-object v10, v4, v11
-
-    const-string v10, "Treatment 1: Enable Creating Role Subscriptions."
-
-    aput-object v10, v4, v5
-
-    .line 24
-    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v4
-
-    invoke-direct/range {v0 .. v5}, Lcom/discord/utilities/experiments/RegisteredExperiment;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/discord/utilities/experiments/RegisteredExperiment$Type;Ljava/util/List;Z)V
-
-    .line 23
-    invoke-virtual {v8, v9, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 25
     sget-object v0, Lcom/discord/utilities/experiments/ExperimentRegistry;->INSTANCE:Lcom/discord/utilities/experiments/ExperimentRegistry;
 
     invoke-virtual {v0}, Lcom/discord/utilities/experiments/ExperimentRegistry;->getRegisteredExperiments()Ljava/util/LinkedHashMap;
@@ -187,16 +150,16 @@
 
     aput-object v10, v4, v12
 
-    .line 26
+    .line 24
     invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
 
     invoke-direct/range {v0 .. v5}, Lcom/discord/utilities/experiments/RegisteredExperiment;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/discord/utilities/experiments/RegisteredExperiment$Type;Ljava/util/List;Z)V
 
-    .line 25
+    .line 23
     invoke-virtual {v8, v9, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 27
+    .line 25
     return-void
 .end method
