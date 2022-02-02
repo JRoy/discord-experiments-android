@@ -27,7 +27,7 @@ public class ParseExperimentsTask extends DefaultTask {
     final List<String> parsedExperiments = new ArrayList<>();
     final Map<String, String> newExperiments = new HashMap<>();
 
-    final File registryFile = Path.of(System.getProperty("user.dir"), "output", "smali", "com", "discord", "utilities", "experiments", "ExperimentRegistry.smali").toFile();
+    final File registryFile = Path.of(System.getProperty("user.dir"), "output", "smali_classes2", "com", "discord", "utilities", "experiments", "ExperimentRegistry.smali").toFile();
     if (registryFile.exists()) {
       try (BufferedReader br = new BufferedReader(new FileReader(registryFile))) {
         String line;
