@@ -1,5 +1,5 @@
-Patched version based on release : 114202
+Patched version based on release : 114203
 
-## New experiments:
-- **Guild Event Read States** `2021-11_guild_events_badging`
-
+## Removed experiments:
+- `2021-10_hubs_recs_and_rankings`
+- `2021-11_hub_unreads`
