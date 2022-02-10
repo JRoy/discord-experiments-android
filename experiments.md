@@ -1,5 +1,3 @@
-Patched version based on release : 114203
+Patched version based on release : 115202
 
-## Removed experiments:
-- `2021-10_hubs_recs_and_rankings`
-- `2021-11_hub_unreads`
+This version has no new or removed experiments.
