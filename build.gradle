@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.JRoy:apk-patcher:c1db8efd5e'
+    implementation 'com.github.JRoy:apk-patcher:794958c626'
 
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
 }

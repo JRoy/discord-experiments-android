@@ -57,7 +57,7 @@ public class DiscordPatcher {
             new WidgetSettingsPatch(),
             new WidgetSettingsModelCompanionPatch(),
             new CustomExperimentPatch(),
-            new FileInjector("CUSTOM_EXPERIMENT_INJECTOR", DiscordPatcher.class, "CustomExperimentRegister.smali", "io/github/jroy/experiment/CustomExperimentRegister.smali")
+            new FileInjector("CUSTOM_EXPERIMENT_INJECTOR", DiscordPatcher.class, "CustomExperimentRegister.smali", "io/github/jroy/experiment/CustomExperimentRegister.smali", true)
         })
         .patch();
   }
