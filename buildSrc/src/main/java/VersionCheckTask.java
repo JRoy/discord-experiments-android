@@ -33,7 +33,7 @@ public abstract class VersionCheckTask extends DefaultTask {
       post.addHeader("User-Agent", "APKUpdater-v2.0.5");
       post.addHeader("Authorization", "Basic YXBpLWFwa3VwZGF0ZXI6cm01cmNmcnVVakt5MDRzTXB5TVBKWFc4");
       post.addHeader("Content-type", "application/json");
-      post.setEntity(new StringEntity("{\"pnames\": [\"com.discord\"],\"exclude\": [\"beta\"]}", ContentType.APPLICATION_JSON));
+      post.setEntity(new StringEntity("{\"pnames\": [\"com.discord\"]}", ContentType.APPLICATION_JSON));
       final CloseableHttpResponse existsResponse = client.execute(post);
       final String content = CharStreams.toString(new InputStreamReader(existsResponse.getEntity().getContent()));
       existsResponse.close();
