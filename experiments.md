@@ -1,4 +1,3 @@
 Patched version based on release : 120111
 
-## Removed experiments:
-- ``
+This version has no new or removed experiments.

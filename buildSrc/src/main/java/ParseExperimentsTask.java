@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +29,13 @@ public class ParseExperimentsTask extends DefaultTask {
     final List<String> parsedExperiments = new ArrayList<>();
     final Map<String, String> newExperiments = new HashMap<>();
 
-    final File registryFile = Path.of(System.getProperty("user.dir"), "output", "smali_classes2", "com", "discord", "utilities", "experiments", "ExperimentRegistry.smali").toFile();
+    //noinspection ConstantConditions
+    final File lastSmaliFolder = Arrays.stream(Path.of(System.getProperty("user.dir"), "output").toFile().listFiles())
+        .filter(f -> f.isDirectory() && (f.getName().equals("smali") || f.getName().startsWith("smali_classes")))
+        .max(Comparator.naturalOrder())
+        .orElseThrow();
+
+    final File registryFile = lastSmaliFolder.toPath().resolve(Path.of("com", "discord", "utilities", "experiments", "ExperimentRegistry.smali")).toFile();
     if (registryFile.exists()) {
       try (BufferedReader br = new BufferedReader(new FileReader(registryFile))) {
         String line;
