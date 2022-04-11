@@ -1,3 +1,4 @@
-Patched version based on release : 122106
+Patched version based on release : 123104
 
-This version has no new or removed experiments.
+## Removed experiments:
+- `2021-11_guild_events_badging`
