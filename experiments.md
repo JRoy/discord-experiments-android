@@ -1,3 +1,5 @@
-Patched version based on release : 126107
+Patched version based on release : 127107
 
-This version has no new or removed experiments.
+## New experiments:
+- **Create Forum Channels** `2021-07_threads_only_channel`
+
