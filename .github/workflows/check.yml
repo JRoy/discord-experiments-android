@@ -2,8 +2,8 @@ name: App Update Check
 
 on:
     schedule:
-      - cron: '0 * * * *'
-  workflow_dispatch:
+        - cron: '0 * * * *'
+    workflow_dispatch:
 
 jobs:
   check:
