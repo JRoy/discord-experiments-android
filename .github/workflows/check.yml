@@ -30,6 +30,8 @@ jobs:
           java-version: '17'
 
       - name: Check for/Patch new APK
+        env:
+          STORE_PASS: ${{ secrets.STORE_PASS }}
         run: |
           chmod +x gradlew
           ./gradlew checkVersion --key $STORE_PASS
