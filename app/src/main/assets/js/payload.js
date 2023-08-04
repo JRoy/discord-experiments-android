@@ -17,6 +17,8 @@ for (const key in window.modules) {
     }
 }
 
+const originalHandler = window.ErrorUtils.getGlobalHandler();
+
 const filterModules = (modules, single = false) => (filter) => {
     const found = [];
 
@@ -25,7 +27,9 @@ const filterModules = (modules, single = false) => (filter) => {
         const module = modules[id]?.publicModule?.exports;
 
         if (!modules[id].isInitialized) try {
+            window.ErrorUtils.setGlobalHandler(() => {});
             __r(id);
+            window.ErrorUtils.setGlobalHandler(originalHandler);
         } catch {}
 
         if (!module) {
